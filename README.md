@@ -1,15 +1,3 @@
-<p align="center">
-  <a href="#" target="_blank">
-    <img src="https://i.ibb.co/k8K4QGR/artconnect-logo.png" width="400" alt="ArtConnect Logo">
-  </a>
-</p>
-
-<p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/status-WIP-yellow" alt="Project Status"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Laravel-11.x-red" alt="Laravel Version"></a>
-  <a href="#"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
-  <a href="#"><img src="https://img.shields.io/badge/course-CSE470-blueviolet" alt="Course Badge"></a>
-</p>
 
 ---
 
@@ -124,14 +112,4 @@ Visit: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 - Public Gallery
 - Responsive UI
 
-### 🔄 Coming Soon
-- Artist-Client Messaging
-- Admin Panel
-- Review & Rating System
-- Search & Filter Optimization
-
 ---
-
-## 🤝 Contributing
-
-Feel free to fork, open issues or submit pull requests! This is a student project, but all clean code and ideas are welc
