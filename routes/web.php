@@ -35,4 +35,8 @@ Route::get('/artworks/create', [ArtworkController::class, 'create'])->name('artw
 Route::post('/artworks', [ArtworkController::class, 'store'])->name('artworks.store');
 Route::get('/gallery', [ArtworkController::class, 'index'])->name('gallery');
 
+// Add register route directly to ensure it's accessible
+Route::get('/register', [App\Http\Controllers\Auth\RegisteredUserController::class, 'create'])->name('register');
+Route::post('/register', [App\Http\Controllers\Auth\RegisteredUserController::class, 'store']);
+
 require __DIR__.'/auth.php';

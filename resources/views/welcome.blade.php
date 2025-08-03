@@ -280,29 +280,6 @@
     </div>
 </div>
 
-<div class="stats-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 stat-item">
-                <span class="stat-number">500+</span>
-                <div class="stat-label">Artists</div>
-            </div>
-            <div class="col-md-3 stat-item">
-                <span class="stat-number">1000+</span>
-                <div class="stat-label">Artworks</div>
-            </div>
-            <div class="col-md-3 stat-item">
-                <span class="stat-number">200+</span>
-                <div class="stat-label">Projects</div>
-            </div>
-            <div class="col-md-3 stat-item">
-                <span class="stat-number">50+</span>
-                <div class="stat-label">Clients</div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="section" id="features" style="background: #e8f5e9;">
     <div class="container">
         <h2 class="section-title text-center">Features</h2>

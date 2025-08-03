@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'ArtConnect')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
             background: linear-gradient(135deg, #e8f5e9 0%, #a5d6a7 100%);
@@ -39,24 +40,24 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark shadow">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="#"><i class="fas fa-palette"></i></a>
+        <a class="navbar-brand fw-bold" href="{{ url('/') }}"><i class="fas fa-palette"></i></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 @auth
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/profile') }}" title="Profile"><i class="fas fa-user"></i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/gallery') }}" title="Browse"><i class="fas fa-images"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/profile') }}" title="Profile"><i class="fas fa-user me-1"></i>Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/gallery') }}" title="Browse"><i class="fas fa-images me-1"></i>Browse</a></li>
                     <li class="nav-item">
                         <form method="POST" action="{{ route('logout') }}" class="d-inline">
                             @csrf
-                            <button type="submit" class="nav-link btn btn-link p-0" style="vertical-align: middle;" title="Logout"><i class="fas fa-sign-out-alt"></i></button>
+                            <button type="submit" class="nav-link btn btn-link p-0" style="vertical-align: middle;" title="Logout"><i class="fas fa-sign-out-alt me-1"></i>Logout</button>
                         </form>
                     </li>
                 @else
-                    <li class="nav-item"><a class="nav-link" href="{{ route('login') }}" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('register') }}" title="Register"><i class="fas fa-user-plus"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('login') }}" title="Login"><i class="fas fa-sign-in-alt me-1"></i>Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('register') }}" title="Register"><i class="fas fa-user-plus me-1"></i>Register</a></li>
                 @endauth
             </ul>
         </div>

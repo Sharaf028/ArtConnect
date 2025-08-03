@@ -46,7 +46,7 @@
             <div class="card">
                 <div class="register-header">
                     <h2 class="fw-bold mb-0">Join ArtConnect</h2>
-                    <p class="mb-0">Create your free account</p>
+                    <p class="mb-0">Create your account</p>
                 </div>
                 <div class="card-body p-4">
                     <form method="POST" action="{{ route('register') }}">
@@ -57,10 +57,12 @@
                             <input id="name" type="text" name="name" class="form-control" value="{{ old('name') }}" required autofocus autocomplete="name">
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
                         </div>
+                        
                         <!-- Email Address -->
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input id="email" type="email" name="email" class="form-control" value="{{ old('email') }}" required autocomplete="username">
+                            <input id="email" type="email" name="email" class="form-control" value="{{ old('email') }}" required autocomplete="username" placeholder="user@domain.com">
+                            <small class="text-muted">Please enter a valid email address (e.g., user@gmail.com)</small>
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
                         <!-- Password -->
