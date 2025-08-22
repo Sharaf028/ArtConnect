@@ -15,11 +15,24 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('gallery')" :active="request()->routeIs('gallery')">
+                        {{ __('Gallery') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('artists.index')" :active="request()->routeIs('artists.*')">
+                        {{ __('Browse Artists') }}
+                    </x-nav-link>
                 </div>
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class="hidden sm:flex sm:items-center sm:ml-6 gap-3">
+                <!-- Browse Artists button -->
+                <a href="{{ route('artists.index') }}" class="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-md transition">
+                    <svg class="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M10 2a6 6 0 100 12A6 6 0 0010 2zM2 18a8 8 0 1116 0H2z" />
+                    </svg>
+                    {{ __('Browse Artists') }}
+                </a>
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
@@ -34,6 +47,22 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        @if(Auth::user()->role === 'artist')
+                            <div class="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 border-b border-gray-100 dark:border-gray-700">
+                                <div class="flex items-center justify-between">
+                                    <span>Status:</span>
+                                    @if(Auth::user()->is_available)
+                                        <span class="badge bg-success text-white text-xs">
+                                            <i class="fas fa-check-circle me-1"></i>Available
+                                        </span>
+                                    @else
+                                        <span class="badge bg-danger text-white text-xs">
+                                            <i class="fas fa-times-circle me-1"></i>Unavailable
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                        @endif
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
@@ -70,14 +99,42 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('gallery')" :active="request()->routeIs('gallery')">
+                {{ __('Gallery') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('artists.index')" :active="request()->routeIs('artists.*')">
+                {{ __('Browse Artists') }}
+            </x-responsive-nav-link>
+            <!-- Mobile CTA: Browse Artists -->
+            <div class="px-4 pt-2">
+                <a href="{{ route('artists.index') }}" class="w-full inline-flex justify-center items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-md transition">
+                    <svg class="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M10 2a6 6 0 100 12A6 6 0 0010 2zM2 18a8 8 0 1116 0H2z" />
+                    </svg>
+                    {{ __('Browse Artists') }}
+                </a>
+            </div>
         </div>
 
         <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
-            <div class="px-4">
-                <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-            </div>
+                    <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
+                <div class="px-4">
+                    <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
+                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                    @if(Auth::user()->role === 'artist')
+                        <div class="mt-2">
+                            @if(Auth::user()->is_available)
+                                <span class="badge bg-success text-white text-xs">
+                                    <i class="fas fa-check-circle me-1"></i>Available
+                                </span>
+                            @else
+                                <span class="badge bg-danger text-white text-xs">
+                                    <i class="fas fa-times-circle me-1"></i>Unavailable
+                                </span>
+                            @endif
+                        </div>
+                    @endif
+                </div>
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">

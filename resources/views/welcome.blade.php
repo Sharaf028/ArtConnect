@@ -356,6 +356,41 @@
     </div>
 </div>
 
+<div class="section bg-white" id="artists">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-title mb-4">Find Your Perfect Artist</h2>
+            <p class="fs-5 text-muted mb-4">Browse talented artists by style, skills, ratings, and availability</p>
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-3">
+                    <div class="feature-card">
+                        <i class="fas fa-search feature-icon text-success"></i>
+                        <h5 class="fw-bold">Filter by Style</h5>
+                        <p class="small">Find artists specializing in digital, watercolor, oil, and more</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="feature-card">
+                        <i class="fas fa-star feature-icon text-warning"></i>
+                        <h5 class="fw-bold">Browse by Rating</h5>
+                        <p class="small">Discover top-rated artists with proven track records</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="feature-card">
+                        <i class="fas fa-clock feature-icon text-info"></i>
+                        <h5 class="fw-bold">Check Availability</h5>
+                        <p class="small">Find active artists ready for new projects</p>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ route('artists.index') }}" class="btn btn-success btn-lg mt-3">
+                <i class="fas fa-palette me-2"></i>Browse Artists
+            </a>
+        </div>
+    </div>
+</div>
+
 <footer class="py-4 text-center" style="background: #388e3c; color: #fff;">
     <div class="container">
         <small>&copy; {{ date('Y') }} ArtConnect. All rights reserved.</small>

@@ -96,4 +96,74 @@ class ProfileTest extends TestCase
 
         $this->assertNotNull($user->fresh());
     }
+
+    public function test_availability_status_can_be_updated(): void
+    {
+        $user = User::factory()->artist()->create();
+
+        $response = $this
+            ->actingAs($user)
+            ->patch('/profile', [
+                'name' => $user->name,
+                'email' => $user->email,
+                'is_available' => '0'
+            ]);
+
+        $response
+            ->assertSessionHasNoErrors()
+            ->assertRedirect('/profile');
+
+        $user->refresh();
+
+        $this->assertFalse($user->is_available);
+    }
+
+    public function test_availability_status_can_be_updated_via_ajax(): void
+    {
+        $user = User::factory()->artist()->create();
+
+        $response = $this
+            ->actingAs($user)
+            ->patch('/profile', [
+                'name' => $user->name,
+                'email' => $user->email,
+                'is_available' => '0'
+            ], [
+                'X-Requested-With' => 'XMLHttpRequest'
+            ]);
+
+        $response->assertJson([
+            'success' => true,
+            'message' => 'Profile updated successfully'
+        ]);
+
+        $user->refresh();
+
+        $this->assertFalse($user->is_available);
+    }
+
+    public function test_client_users_cannot_update_availability(): void
+    {
+        $user = User::factory()->create([
+            'role' => 'client',
+            'is_available' => true
+        ]);
+
+        $response = $this
+            ->actingAs($user)
+            ->patch('/profile', [
+                'name' => $user->name,
+                'email' => $user->email,
+                'is_available' => '0'
+            ]);
+
+        $response
+            ->assertSessionHasNoErrors()
+            ->assertRedirect('/profile');
+
+        $user->refresh();
+
+        // Availability should remain unchanged for clients
+        $this->assertTrue($user->is_available);
+    }
 }
