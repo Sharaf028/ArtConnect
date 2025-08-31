@@ -6,6 +6,7 @@
     <title>@yield('title', 'ArtConnect')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         body {
             background: linear-gradient(135deg, #e8f5e9 0%, #a5d6a7 100%);
@@ -49,6 +50,10 @@
                 @auth
                     <li class="nav-item"><a class="nav-link" href="{{ url('/profile') }}" title="Profile"><i class="fas fa-user me-1"></i>Profile</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('/gallery') }}" title="Browse"><i class="fas fa-images me-1"></i>Browse</a></li>
+                    @if(auth()->user()->role === 'client')
+                        <li class="nav-item"><a class="nav-link" href="{{ route('artists.index') }}" title="Artists"><i class="fas fa-palette me-1"></i>Artists</a></li>
+                    @endif
+                    <li class="nav-item"><a class="nav-link" href="{{ route('commissions.index') }}" title="My Commissions"><i class="fas fa-handshake me-1"></i>{{ auth()->user()->role === 'artist' ? 'My Commissions' : 'My Requests' }}</a></li>
                     <li class="nav-item">
                         <form method="POST" action="{{ route('logout') }}" class="d-inline">
                             @csrf

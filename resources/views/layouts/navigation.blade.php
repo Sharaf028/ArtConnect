@@ -33,6 +33,14 @@
                     </svg>
                     {{ __('Browse Artists') }}
                 </a>
+                
+                <!-- Commissions button -->
+                <a href="{{ route('commissions.index') }}" class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md transition">
+                    <svg class="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {{ __('Commissions') }}
+                </a>
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
@@ -66,6 +74,7 @@
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
+                        
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
@@ -104,6 +113,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('artists.index')" :active="request()->routeIs('artists.*')">
                 {{ __('Browse Artists') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('commissions.index')" :active="request()->routeIs('commissions.*')">
+                {{ __('Commissions') }}
             </x-responsive-nav-link>
             <!-- Mobile CTA: Browse Artists -->
             <div class="px-4 pt-2">

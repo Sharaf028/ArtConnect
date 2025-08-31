@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtworkController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\WorkExperienceController;
+use App\Http\Controllers\CommissionController;
 use App\Models\Artwork;
 
 /*
@@ -56,6 +57,22 @@ Route::delete('/comments/{id}', [CommentController::class, 'destroy'])->name('co
 // Artist browsing routes
 Route::get('/artists', [App\Http\Controllers\ArtistController::class, 'index'])->name('artists.index');
 Route::get('/artists/{artist}', [App\Http\Controllers\ArtistController::class, 'show'])->name('artists.show');
+
+// Commission routes
+Route::middleware('auth')->group(function () {
+    Route::get('/commissions', [CommissionController::class, 'index'])->name('commissions.index');
+    Route::get('/commissions/inbox', [CommissionController::class, 'inbox'])->name('commissions.inbox');
+    Route::get('/commissions/sent', [CommissionController::class, 'sent'])->name('commissions.sent');
+    Route::get('/commissions/create/{artist}', [CommissionController::class, 'create'])->name('commissions.create');
+    Route::post('/commissions/{artist}', [CommissionController::class, 'store'])->name('commissions.store');
+    Route::get('/commissions/{commission}', [CommissionController::class, 'show'])->name('commissions.show');
+    Route::post('/commissions/{commission}/accept', [CommissionController::class, 'accept'])->name('commissions.accept');
+    Route::post('/commissions/{commission}/reject', [CommissionController::class, 'reject'])->name('commissions.reject');
+    Route::post('/commissions/{commission}/start-work', [CommissionController::class, 'startWork'])->name('commissions.start-work');
+    Route::post('/commissions/{commission}/complete', [CommissionController::class, 'complete'])->name('commissions.complete');
+    Route::post('/commissions/{commission}/confirm-completion', [CommissionController::class, 'confirmCompletion'])->name('commissions.confirm-completion');
+    Route::post('/commissions/{commission}/cancel', [CommissionController::class, 'cancel'])->name('commissions.cancel');
+});
 
 // Add register route directly to ensure it's accessible
 Route::get('/register', [App\Http\Controllers\Auth\RegisteredUserController::class, 'create'])->name('register');

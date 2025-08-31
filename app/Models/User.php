@@ -152,7 +152,7 @@ class User extends Authenticatable
                 return asset('storage/' . $this->profile_picture);
             }
             
-            // Return the same default profile picture for everyone
-            return asset('images/default-user.png');
+            // Return the same robotic default profile picture for everyone
+            return asset('images/default-user.svg');
     }
 }

@@ -227,10 +227,6 @@
                             <a href="{{ route('artworks.create') }}" class="btn btn-light">
                                 <i class="fas fa-upload me-2"></i>Upload Artwork
                             </a>
-                            <button type="button" class="btn btn-{{ auth()->user()->is_available ? 'success' : 'danger' }} availability-toggle" onclick="toggleAvailability()">
-                                <i class="fas fa-{{ auth()->user()->is_available ? 'check-circle' : 'times-circle' }} me-2"></i>
-                                {{ auth()->user()->is_available ? 'Available' : 'Unavailable' }}
-                            </button>
                         </div>
                     @endif
                 </div>

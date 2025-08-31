@@ -115,10 +115,15 @@
 
             <!-- Contact/Commission Button -->
             @auth
-                @if(auth()->user()->role === 'client')
+                @if(auth()->user()->id !== $artist->id)
                     <div class="d-grid">
-                        <a href="#" class="btn btn-success btn-lg">
-                            <i class="fas fa-envelope me-2"></i>Request Commission
+                        <a href="{{ route('commissions.create', $artist) }}" class="btn btn-success btn-lg">
+                            <i class="fas fa-envelope me-2"></i>
+                            @if(auth()->user()->role === 'client')
+                                Hire
+                            @else
+                                Request Commission
+                            @endif
                         </a>
                     </div>
                 @endif
