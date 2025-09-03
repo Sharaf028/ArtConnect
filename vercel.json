@@ -4,17 +4,23 @@
     "outputDirectory": "public",
     "functions": {
         "api/index.php": {
-            "runtime": "vercel-php@0.6.0"
+            "runtime": "vercel-php@0.7.0"
         }
     },
     "routes": [
         {
             "src": "/build/(.*)",
-            "dest": "public/build/$1"
+            "dest": "public/build/$1",
+            "headers": {
+                "Cache-Control": "public, max-age=31536000, immutable"
+            }
         },
         {
-            "src": "/(css|js|images)/(.*)",
-            "dest": "public/$1/$2"
+            "src": "/(css|js|images|favicon.ico)/(.*)",
+            "dest": "public/$1/$2",
+            "headers": {
+                "Cache-Control": "public, max-age=31536000"
+            }
         },
         {
             "src": "/(.*)",
