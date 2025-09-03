@@ -78,6 +78,15 @@
                             <button type="submit" class="btn btn-success px-4">Log in</button>
                         </div>
                     </form>
+                    
+                    <!-- Additional Action Buttons -->
+                    <div class="text-center mt-4 pt-3 border-top">
+                        <p class="text-muted mb-3">Don't have an account yet?</p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <a href="{{ route('register') }}" class="btn btn-outline-success me-md-2">Register Now!</a>
+                            <a href="{{ url('/') }}" class="btn btn-secondary">Back to Homepage</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

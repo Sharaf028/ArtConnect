@@ -282,7 +282,7 @@
 
 <div class="section" id="features" style="background: #e8f5e9;">
     <div class="container">
-        <h2 class="section-title text-center">Features</h2>
+        <h2 class="section-title text-center">What can you do here</h2>
         <div class="row">
             <div class="col-md-3 mb-4">
                 <div class="feature-card">
@@ -391,9 +391,25 @@
     </div>
 </div>
 
-<footer class="py-4 text-center" style="background: #388e3c; color: #fff;">
+<footer class="py-5 text-center" style="background: #388e3c; color: #fff;">
     <div class="container">
-        <small>&copy; {{ date('Y') }} ArtConnect. All rights reserved.</small>
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-8">
+                <h5 class="fw-bold mb-3"><i class="fas fa-envelope me-2"></i>Contact Us</h5>
+                <p class="mb-3">Have any queries about the website or feedback? We'd love to hear from you!</p>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=subah2028@gmail.com" target="_blank" class="btn btn-light btn-sm me-2 mb-2">
+                    <i class="fas fa-paper-plane me-1"></i>Send Email
+                </a>
+                <span class="text-light opacity-75">|</span>
+                <span class="text-light ms-2">subah2028@gmail.com</span>
+            </div>
+        </div>
+        <hr class="border-light opacity-25">
+        <div class="row">
+            <div class="col-12">
+                <small>&copy; {{ date('Y') }} ArtConnect. All rights reserved.</small>
+            </div>
+        </div>
     </div>
 </footer>
 
