@@ -116,11 +116,11 @@ class Commission extends Model
     public function getBudgetRangeAttribute(): string
     {
         if ($this->budget_min && $this->budget_max) {
-            return '$' . number_format($this->budget_min, 2) . ' - $' . number_format($this->budget_max, 2);
+            return 'BDT ' . number_format($this->budget_min, 2) . ' - BDT ' . number_format($this->budget_max, 2);
         } elseif ($this->budget_min) {
-            return '$' . number_format($this->budget_min, 2) . '+';
+            return 'BDT ' . number_format($this->budget_min, 2) . '+';
         } elseif ($this->budget_max) {
-            return 'Up to $' . number_format($this->budget_max, 2);
+            return 'Up to BDT ' . number_format($this->budget_max, 2);
         }
         return 'Not specified';
     }

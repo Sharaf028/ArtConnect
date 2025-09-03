@@ -157,7 +157,7 @@
                                             </span>
                                             <p class="text-sm font-medium text-gray-900 dark:text-white">
                                                 @if($commission->price)
-                                                    ${{ number_format($commission->price, 2) }}
+                                                    BDT {{ number_format($commission->price, 2) }}
                                                 @else
                                                     {{ $commission->budget_range }}
                                                 @endif

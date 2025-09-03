@@ -77,7 +77,7 @@
                         <!-- Budget Range -->
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="budget_min" class="form-label">Minimum Budget ($)</label>
+                                <label for="budget_min" class="form-label">Minimum Budget (BDT)</label>
                                 <input id="budget_min" type="number" name="budget_min" class="form-control" 
                                        step="0.01" min="0" value="{{ old('budget_min') }}" placeholder="0.00">
                                 @error('budget_min')
@@ -85,7 +85,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="budget_max" class="form-label">Maximum Budget ($)</label>
+                                <label for="budget_max" class="form-label">Maximum Budget (BDT)</label>
                                 <input id="budget_max" type="number" name="budget_max" class="form-control" 
                                        step="0.01" min="0" value="{{ old('budget_max') }}" placeholder="0.00">
                                 @error('budget_max')

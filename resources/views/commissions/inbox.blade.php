@@ -188,7 +188,7 @@
                                                 </div>
                                                 <div class="col-md-4 mb-2">
                                                     <strong class="small text-muted">Price:</strong>
-                                                    <p class="small mb-0">${{ number_format($commission->price, 2) }}</p>
+                                                    <p class="small mb-0">BDT {{ number_format($commission->price, 2) }}</p>
                                                 </div>
                                             </div>
                                             
@@ -274,7 +274,7 @@
                 @csrf
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="price" class="form-label">Agreed Price ($)</label>
+                        <label for="price" class="form-label">Agreed Price (BDT)</label>
                         <input type="number" name="price" id="price" step="0.01" min="0" required class="form-control">
                     </div>
                     <div class="mb-3">
